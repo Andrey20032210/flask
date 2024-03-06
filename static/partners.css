@@ -1,0 +1,102 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1 {
+    color: #333;
+    margin: 20px 0;
+}
+
+table {
+    width: 90%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #2980b9;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+a {
+    text-decoration: none;
+    color: #2980b9;
+    border: 1px solid #2980b9;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #2980b9;
+    color: white;
+}
+
+.action-buttons button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-buttons button:last-child {
+    margin-right: 0;
+}
+
+.action-buttons button.edit {
+    background-color: #f1c40f;
+}
+
+.action-buttons button.delete {
+    background-color: #e74c3c;
+}
+
+.action-buttons button:hover {
+    opacity: 0.8;
+}
+
+.action-buttons button.delete:hover {
+    background-color: #c0392b;
+}
+
+.action-buttons button.edit:hover {
+    background-color: #f39c12;
+}
+
+.back-link {
+    padding: 5px 15px;
+    background-color: #7f8c8d;
+    color: white;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.back-link:hover {
+    background-color: #95a5a6;
+}

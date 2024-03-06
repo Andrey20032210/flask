@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 38px;
+}
+
+.admin-container {
+    width: 100%; 
+    margin: 10px auto;
+    padding: 15px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 38px;
+}
+
+p {
+    font-size: 38px; 
+    margin-bottom: 10px; 
+}
+
+button, .link-button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 15px 20px; 
+    margin: 10px 0; 
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 38px; 
+}
+
+button:hover, .link-button:hover {
+    background-color: #3498db;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f3f3f3;
+    font-size: 38px; 
+}
+
+.partner-card {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.partner-links, .partner-actions {
+    margin-top: 10px;
+}
+
+.partner-actions button, .partner-actions form {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 10px;
+    }
+
+    .partner-card {
+        padding: 10px;
+    }
+
+    .partner-actions button, .partner-actions form button {
+        padding: 10px;
+        font-size: 28px;
+    }
+}

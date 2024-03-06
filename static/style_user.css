@@ -1,0 +1,108 @@
+.user-container {
+    max-width: 800px;
+    margin: 50px auto; 
+    padding: 50px; 
+    border: 1px solid #e1e1e1;
+    border-radius: 10px; 
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-container h2, .user-container h3 {
+    color: #333;
+    margin-bottom: 25px; 
+    font-size: 45px;
+}
+
+.links-list li, p {
+    background-color: #d8d8d8; 
+    border: 1px solid #000000; 
+    padding: 35px; 
+    margin-bottom: 35px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    transition: box-shadow 0.3s ease; 
+    font-size: 32px; 
+}
+
+
+.user-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-container input[type="text"] {
+    padding: 30px 15px; 
+    margin-bottom: 25px; 
+    border: 1px solid #ccc;
+    border-radius: 10px; 
+    font-size: 40px; 
+}
+
+.user-container input[type="submit"],
+.user-container button,
+.links-list button,
+.links-list form button[type="submit"],
+.logout-button {
+    padding: 12.5px 10px; 
+    font-size: 35px; 
+    margin: 12.5px 5px 12.5px 0; 
+    border-radius: 10px; 
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    display: inline-block;
+}
+
+.user-container input[type="submit"]:hover,
+.user-container button:hover,
+.links-list button:hover,
+.links-list form button[type="submit"]:hover,
+.logout-button:hover {
+    background-color: #45a049;
+}
+
+.links-list form button[type="submit"] {
+    background-color: #f44336; 
+}
+
+.links-list form button[type="submit"]:hover {
+    background-color: #d32f2f;
+}
+
+.generated-link a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.generated-link a:hover {
+    text-decoration: underline;
+}
+
+.generated-link img {
+    max-width: 200px; 
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.links-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.links-list li {
+    padding: 25px; 
+    border-bottom: 1px solid #eee;
+    margin-bottom: 12.5px; 
+}
+
+.links-list a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.links-list a:hover {
+    text-decoration: underline;
+}
