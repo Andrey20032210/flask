@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function validateForm() {
+            var username = document.forms["registerForm"]["username"].value;
+            var email = document.forms["registerForm"]["email"].value;
+            var password = document.forms["registerForm"]["password"].value;
+            if (username === "" || email === "" || password === "") {
+                alert("Все поля должны быть заполнены!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Регистрация</h2>
+        <form name="registerForm" class="register-form" method="post" onsubmit="return validateForm()">
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Введите логин" required>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Введите email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Введите пароль" required>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="btn register">Зарегистрировать партнёра</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

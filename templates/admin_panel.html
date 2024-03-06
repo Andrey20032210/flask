@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="2">
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_for_admin_panel.css') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <button onclick="location.href='/logout'">Выход из сессии</button>
+        <button type="button" class="btn register" onclick="location.href='/register'">Зарегестрировать партнёра</button>
+        <h2>Админ-панель</h2>
+        <p>Добро пожаловать, {{ session['username'] }}!</p>
+        <div class="partners-list">
+            {% for partner in partners %}
+            <div class="partner-card">
+                <h3>{{ partner['username'] }} | {{ partner['email'] }}</h3>
+                <div class="partner-links">
+                    <strong>Ссылки:</strong><br>
+                    {% for link in partner['links'] %}
+                    <a href="{{ link['original_link'] }}" target="_blank">{{ link['link_name'] }}</a> ({{ link['click_count'] }} переходов)<br>
+                    {% endfor %}
+                </div>
+                <div class="partner-actions">
+                    <button onclick="location.href='/edit-partner/{{ partner['id'] }}'">Редактировать</button>
+                    <form method="POST" action="/delete-partner/{{ partner['id'] }}" onsubmit="return confirm('Вы уверены, что хотите удалить этого партнера?');">
+                        <button type="submit">Удалить</button>
+                    </form>
+                    <button onclick="location.href='/partner_stats/{{ partner['id'] }}'">Полный отчет</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

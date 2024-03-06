@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользовательская панель</title>
+    <meta http-equiv="refresh" content="60">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_user.css') }}">
+</head>
+<body>
+    <div class="user-container">
+        <button onclick="location.href='/logout'">Выход</button>
+        <h2>Пользовательская панель</h2>
+        <p>Добро пожаловать, {{ session['username'] }}!</p>
+        
+        <div class="link-creation">
+            <h3>Создание ссылки и QR-кода</h3>
+            <form action="/user_panel/create_link" method="post">
+                <input type="text" name="link_name" placeholder="Введите название ссылки" required>
+                <input type="text" name="original_url" placeholder="Введите исходную ссылку" required>
+                <input type="submit" value="Создать">
+            </form>
+        </div>
+        {% if generated_link %}
+        <div class="generated-link">
+            <p>Название ссылки: <strong>{{ link_name }}</strong></p>
+            <p>Ваша ссылка: <a href="{{ generated_link }}">{{ generated_link }}</a></p>
+            <img src="{{ qrcode_url }}" alt="QR Code">
+            <button id="backButton" onclick="history.back()" style="display: inline;">Назад</button>
+        </div>
+        {% else %}
+        <button id="backButton" onclick="history.back()" style="display: none;">Назад</button>
+        {% endif %}
+        <div class="links-list">
+            {% if links %}
+            <ul>
+                {% for link in links %}
+                <li>
+                    <strong>{{ link['link_name'] }} переходов: {{ link['click_count'] | default('0') }}</strong>
+                    <a href="{{ link['generated_link'] }}" target="_blank">{{ link['generated_link'] }}</a>
+                    <button onclick="window.location.href='/show-qr/{{ link['id'] }}'">Показать QR-код</button>
+                    <form action="{{ url_for('delete_link', link_id=link['id']) }}" method="POST" onsubmit="return confirm('Вы уверены, что хотите удалить эту ссылку?');">
+                        <button type="submit">Удалить</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
+    </div>
+</body>
+</html>

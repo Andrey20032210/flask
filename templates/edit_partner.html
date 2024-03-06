@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать партнёра</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_edit_partner.css') }}">
+</head>
+<body>
+    <div class="edit-partner-container">
+        <h2>Редактировать партнёра</h2>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Новый логин" value="{{ partner[0] }}" required>
+            <input type="password" name="password" placeholder="Новый пароль" required>
+            <input type="submit" value="Сохранить изменения">
+        </form>
+        <button onclick="location.href='/admin_panel'">Назад</button>
+    </div>
+</body>
+</html>
