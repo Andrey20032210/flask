@@ -71,8 +71,6 @@ def login():
             return 'Логин или пароль неверны'
     return render_template('index.html')
 
-
-
 @app.route('/authentication', methods=['GET', 'POST'])
 def authentication():
     if request.method == 'POST':
@@ -247,7 +245,9 @@ def redirect_to_target(unique_id):
         country, city = get_location_by_ip(client_ip)
         if country and "UA" not in country:
             city = None
-        c.execute("SELECT id FROM click_statistic WHERE link_id = ? AND user_ip = ? AND click_date > datetime('now', '-1 month')", (link_id, client_ip))
+
+        
+        c.execute("SELECT id FROM click_statistic WHERE link_id = ? AND user_ip = ? AND click_date > datetime('now', '-1 hour')", (link_id, client_ip))
         if not c.fetchone():
             c.execute("INSERT INTO click_statistic (link_id, user_ip, device_info, city) VALUES (?, ?, ?, ?)", (link_id, client_ip, device_info, city))
             conn.commit()
@@ -532,5 +532,5 @@ def get_partner_links_count(partner_id):
     return link_count
 
 
-if __name__ == '__main__':    
-    app.run(host='0.0.0.0', port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5500, debug=True)
