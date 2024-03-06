@@ -247,9 +247,7 @@ def redirect_to_target(unique_id):
         country, city = get_location_by_ip(client_ip)
         if country and "UA" not in country:
             city = None
-
-        
-        c.execute("SELECT id FROM click_statistic WHERE link_id = ? AND user_ip = ? AND click_date > datetime('now', '-1 hour')", (link_id, client_ip))
+        c.execute("SELECT id FROM click_statistic WHERE link_id = ? AND user_ip = ? AND click_date > datetime('now', '-1 month')", (link_id, client_ip))
         if not c.fetchone():
             c.execute("INSERT INTO click_statistic (link_id, user_ip, device_info, city) VALUES (?, ?, ?, ?)", (link_id, client_ip, device_info, city))
             conn.commit()
